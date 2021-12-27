@@ -44,7 +44,7 @@
 			        <td>${u.email}</td>
 			        <td>${u.clientes.size()}</td>
 			        
-			        <c:if test="${user.admin}">
+			        <c:if test="${user.admin && user.id != u.id}" >
 			        	<td><a href="/usuario/${u.id}/excluir">excluir</a></td>
 			        </c:if>
 			      </tr>
