@@ -50,7 +50,7 @@ public class ClienteController {
 		Cliente cliente = clienteService.obterPorId(id);		
 		clienteService.excluir(id);
 
-		model.addAttribute("mensagem", "O solicitante "+cliente.getNome()+" foi removido com sucesso!!!");		
+		model.addAttribute("mensagem", "O solicitante "+cliente.getNome()+" foi removido com sucesso!!!");
 		
 		return telaLista(model, usuario);
 	}

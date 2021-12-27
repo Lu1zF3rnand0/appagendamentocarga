@@ -45,7 +45,6 @@ public class UsuarioController {
 
 		Usuario usuario = usuarioService.obterPorId(id);		
 		usuarioService.excluir(id);
-
 		model.addAttribute("mensagem", "O usuário "+usuario.getNome()+" foi removido com sucesso!!!");		
 		
 		return telaLista(model);
