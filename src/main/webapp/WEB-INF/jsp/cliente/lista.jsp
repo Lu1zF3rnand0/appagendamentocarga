@@ -19,6 +19,12 @@
 	 	  
 	  <hr>
 	  
+	  <c:if test="${not empty mensagem}">
+		<div class="alert alert-success">
+		  <strong>Confirmação!</strong> ${mensagem}
+		</div>	  
+	  </c:if>
+	  
 	   <c:if test="${not empty lista}">		
 	     
 		  <table class="table table-striped">
@@ -28,6 +34,7 @@
 		        <th>E-mail</th>
 		        <th>Telefone</th>
 		        <th>CNPJ</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -37,6 +44,7 @@
 		        <td>${a.email}</td>
 		        <td>${a.telefone}</td>
 		        <td>${a.cnpj}</td>
+		        <td><a href="/cliente/${a.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>
 		    </tbody>
