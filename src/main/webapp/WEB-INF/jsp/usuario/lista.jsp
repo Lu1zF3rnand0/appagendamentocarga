@@ -1,10 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="br.edu.infnet.appagendamentocarga.model.domain.Aluno"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Usuários</title>
+<title>Clientes</title>
+<!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -12,46 +15,55 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
-	  <h2>Cadastramento de Usuários</h2>
+	  <h2> Cadastramento de Clientes</h2>
+	 	  
+	  <hr>
 	  
-	   <hr>
-
-	<c:if test="${not empty lista}">		
-				  
-		<table class="table table-striped">
+	  <c:if test="${not empty mensagem}">
+		<div class="alert alert-success">
+		  <strong>Confirmação!</strong> ${mensagem}
+		</div>	  
+	  </c:if>
+	  
+	   <c:if test="${not empty lista}">		
+	     
+		  <table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th>ID</th>
 		        <th>Nome</th>
 		        <th>E-mail</th>
-		        <th>Clientes</th>
-		        <c:if test="${user.admin}">
-		        	<th></th>
-		        </c:if>
+		        <th>Telefone</th>
+		        <th>CNPJ</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <c:forEach var="u" items="${lista}">
-			      <tr>
-			        <td>${u.id}</td>
-			        <td>${u.nome}</td>
-			        <td>${u.email}</td>
-			        <td>${u.clientes.size()}</td>
-			        
-			        <c:if test="${user.admin}">
-			        	<td><a href="/usuario/${u.id}/excluir">excluir</a></td>
-			        </c:if>
-			      </tr>
-		      </c:forEach>		      
+		      <c:forEach var="a" items="${lista}">
+		      <tr>
+		        <td>${a.nome}</td>
+		        <td>${a.email}</td>
+		        <td>${a.telefone}</td>
+		        <td>${a.cnpj}</td>
+		        <td><a href="/cliente/${a.id}/excluir">excluir</a></td>
+		      </tr>
+		      </c:forEach>
 		    </tbody>
-	  	</table>
-	  	<h4>Total de Usuários: ${lista.size()}</h4>
-    </c:if>	  	  
-
-	<c:if test="${empty lista}">		
-	  <h2>Não existem usuários cadastrados!!!</h2>
-	</c:if>
-
+		  </table>	
+		  <h4>Total de Clientes: ${lista.size()}</h4>
+		  
+	  </c:if>  
+	  
+	  <c:if test="${empty lista}">
+	  	<h4>Não existem clientes cadastrados!!!</h4>
+	  </c:if>
+	   
 	</div>
+	
+	<div class="container mt-3" align = "right">
+		<form action="/cliente" method="get" >
+			<button type="submit" class="btn btn-primary">Novo</button>
+		</form>
+	</div>
+
 </body>
 </html>
