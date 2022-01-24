@@ -11,6 +11,7 @@ br\edu\infnet\appagendamentocarga\controller\AcessoController.class
 br\edu\infnet\appagendamentocarga\repository\ClienteRepository.class
 br\edu\infnet\appagendamentocarga\model\tests\CargaTest.class
 br\edu\infnet\appagendamentocarga\service\ClienteService.class
+br\edu\infnet\appagendamentocarga\controller\ClienteController.class
 br\edu\infnet\appagendamentocarga\model\domain\Usuario.class
 br\edu\infnet\appagendamentocarga\model\tests\ArquivoTeste.class
 br\edu\infnet\appagendamentocarga\controller\UsuarioController.class

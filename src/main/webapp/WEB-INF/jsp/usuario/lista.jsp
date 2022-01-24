@@ -43,10 +43,7 @@
 			        <td>${u.nome}</td>
 			        <td>${u.email}</td>
 			        <td>${u.clientes.size()}</td>
-			        
-			        <c:if test="${user.admin && user.id != u.id}" >
-			        	<td><a href="/usuario/${u.id}/excluir">excluir</a></td>
-			        </c:if>
+			        	<td><c:if test="${user.admin && user.id != u.id}" ><a href="/usuario/${u.id}/excluir">excluir</a> </c:if></td>			       
 			      </tr>
 		      </c:forEach>		      
 		    </tbody>
