@@ -16,6 +16,7 @@ br\edu\infnet\appagendamentocarga\model\domain\Usuario.class
 br\edu\infnet\appagendamentocarga\model\tests\ArquivoTeste.class
 br\edu\infnet\appagendamentocarga\controller\UsuarioController.class
 br\edu\infnet\appagendamentocarga\model\domain\Aluno.class
+br\edu\infnet\appagendamentocarga\repository\ConteinerRepository.class
 br\edu\infnet\appagendamentocarga\model\tests\ClienteTest.class
 br\edu\infnet\appagendamentocarga\model\domain\Cliente.class
 br\edu\infnet\appagendamentocarga\controller\CargaSoltaController.class
@@ -31,3 +32,4 @@ br\edu\infnet\appagendamentocarga\model\domain\Carga.class
 br\edu\infnet\appagendamentocarga\exceptions\PortoInvalidoException.class
 br\edu\infnet\appagendamentocarga\model\domain\CargaSolta.class
 br\edu\infnet\appagendamentocarga\UsuarioLoader.class
+br\edu\infnet\appagendamentocarga\ProdutoLoader.class

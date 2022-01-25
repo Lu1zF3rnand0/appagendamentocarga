@@ -1,8 +1,14 @@
 package br.edu.infnet.appagendamentocarga.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appagendamentocarga.exceptions.PortoInvalidoException;
 import br.edu.infnet.appagendamentocarga.exceptions.TamanhoInvalidoException;
 
+
+@Entity
+@Table(name = "TConteiner")
 public class Conteiner extends Carga {
 
 	private String numero;
@@ -25,6 +31,13 @@ public class Conteiner extends Carga {
 		this.status = status;
 	}
 	
+	public Conteiner(String numero, int tamanho, String status) {
+		this.numero = numero;
+		this.tamanho = tamanho;
+		this.status = status;
+	}
+	
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
