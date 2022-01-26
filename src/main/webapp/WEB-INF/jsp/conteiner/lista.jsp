@@ -32,14 +32,16 @@
 		        <th>Numero</th>
 		        <th>Tamanho</th>
 		        <th>Status</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <c:forEach var="a" items="${lista}">
+		      <c:forEach var="c" items="${lista}">
 		      <tr>
-		        <td>${a.numero}</td>
-		        <td>${a.tamanho}</td>
-		        <td>${a.status}</td>
+		        <td>${c.numero}</td>
+		        <td>${c.tamanho}</td>
+		        <td>${c.status}</td>
+		        <td><a href="/conteiner/${c.id}/excluir">excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>

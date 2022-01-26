@@ -23,19 +23,18 @@ public class Conteiner extends Carga {
 	public Conteiner(String navio, String documento, String porto) throws PortoInvalidoException {
 		super(navio, documento, porto);
 	}
+
+//	public Conteiner(String navio, String documento, String porto, String numero, int tamanho, String status) {
+//		this.numero = numero;
+//		this.tamanho = tamanho;
+//		this.status = status;
+//	}
 	
-	public Conteiner(String navio, String documento, String porto, String numero, int tamanho, String status) {
-		this();
-		this.numero = numero;
-		this.tamanho = tamanho;
-		this.status = status;
-	}
-	
-	public Conteiner(String numero, int tamanho, String status) {
-		this.numero = numero;
-		this.tamanho = tamanho;
-		this.status = status;
-	}
+//	public Conteiner(String numero, int tamanho, String status) {
+//		this.numero = numero;
+//		this.tamanho = tamanho;
+//		this.status = status;
+//	}
 	
 
 	@Override

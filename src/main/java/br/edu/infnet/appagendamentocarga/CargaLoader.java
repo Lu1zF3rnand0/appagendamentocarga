@@ -11,7 +11,7 @@ import br.edu.infnet.appagendamentocarga.service.ConteinerService;
 
 @Component
 @Order(3)
-public class ProdutoLoader implements ApplicationRunner {
+public class CargaLoader implements ApplicationRunner {
 
 
 	@Autowired
@@ -34,21 +34,6 @@ public class ProdutoLoader implements ApplicationRunner {
 				
 		conteinerService.incluir(conteiner2);
 		
-		
-		for (Conteiner c : conteinerService.obterLista()) {
-			System.out.println(c.getId() + " Conteiner " + c.getNumero());
-			
-		}
-		
-		conteinerService.excluir(1);
-		
-		for (Conteiner c : conteinerService.obterLista()) {
-			System.out.println(c.getId() + " Conteiner " + c.getNumero());
-			
-		}
-		
-		Conteiner c3 = conteinerService.obterPorId(2);
-		System.out.println(c3.getId() + " Conteiner " + c3.getNumero());
 	
 	}
 }

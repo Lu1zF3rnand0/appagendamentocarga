@@ -57,16 +57,34 @@ public abstract class Carga {
 		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNavio() {
 		return navio;
+	}
+
+	public void setNavio(String navio) {
+		this.navio = navio;
 	}
 
 	public String getDocumento() {
 		return documento;
 	}
 
+	public void setDocumento(String documento) {
+		this.documento = documento;
+	}
+
 	public String getPorto() {
 		return porto;
 	}
+
+	public void setPorto(String porto) {
+		this.porto = porto;
+	}
+
+	
 
 }

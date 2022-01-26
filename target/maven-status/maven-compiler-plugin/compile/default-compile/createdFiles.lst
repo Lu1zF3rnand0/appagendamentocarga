@@ -6,6 +6,7 @@ br\edu\infnet\appagendamentocarga\model\tests\ConteinerTest.class
 br\edu\infnet\appagendamentocarga\controller\ConteinerController.class
 br\edu\infnet\appagendamentocarga\exceptions\ChassiInvalidoException.class
 br\edu\infnet\appagendamentocarga\service\UsuarioService.class
+br\edu\infnet\appagendamentocarga\service\ConteinerService.class
 br\edu\infnet\appagendamentocarga\model\tests\AgendamentoTest.class
 br\edu\infnet\appagendamentocarga\controller\AcessoController.class
 br\edu\infnet\appagendamentocarga\repository\ClienteRepository.class
