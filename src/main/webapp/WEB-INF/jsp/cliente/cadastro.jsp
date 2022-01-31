@@ -36,6 +36,8 @@
 	      <input type="text" class="form-control" placeholder="Entre com o CNPJ" name="cnpj" value="02828446000134"> 
 	    </div>
 	    
+	    <c:import url="/WEB-INF/jsp/endereco.jsp"/>
+	    
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
 	</div>

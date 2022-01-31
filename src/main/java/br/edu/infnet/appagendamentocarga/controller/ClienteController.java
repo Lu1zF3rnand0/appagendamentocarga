@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appagendamentocarga.model.domain.Cliente;
+import br.edu.infnet.appagendamentocarga.model.domain.Endereco;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
 import br.edu.infnet.appagendamentocarga.service.ClienteService;
 
@@ -33,7 +34,9 @@ public class ClienteController {
 	}
 
 	@PostMapping(value = "/cliente/incluir")
-	public String incluir(Model model, Cliente cliente, @SessionAttribute("user") Usuario usuario) {
+	public String incluir(Model model, Cliente cliente, Endereco endereco, @SessionAttribute("user") Usuario usuario) {
+		
+		cliente.setEndereco(endereco);
 		
 		cliente.setUsuario(usuario);
 		

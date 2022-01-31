@@ -19,6 +19,16 @@
 		  <strong>Confirmação!</strong> ${mensagem}
 		</div>	  
 	  </c:if>
+	  
+	  <form action ="/cep" class="form-inline" method="post">
+	  	<div class="mb-3 mt-3">
+	  		<label>Busca por CEP:</label>
+	  		<input type="text" class="form-control" placeholder="Entre com o seu cep" name="cep" value="25930000">
+	  	</div>
+	  	
+	  	<button type="submit" class="btn btn-primary">Buscar</button>
+	 </form>
+	    
 
 	  <form action="/usuario/incluir" method="post">
 	    <div class="mb-3 mt-3">
@@ -31,10 +41,12 @@
 	      <input type="email" class="form-control" placeholder="Entre com o seu e-mail" name="email" value="Luiz@luiz.com">
 	    </div>
 
-	    <div class="mb-3 mt-3" style="margin-bottom:20px">
+	    <div class="mb-3 mt-3">
 	      <label>Senha:</label>
 	      <input type="password" class="form-control" placeholder="Entre com o sua senha" name="senha" value="123">
 	    </div>
+	    
+	    <c:import url="/WEB-INF/jsp/endereco.jsp"/>
 
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
