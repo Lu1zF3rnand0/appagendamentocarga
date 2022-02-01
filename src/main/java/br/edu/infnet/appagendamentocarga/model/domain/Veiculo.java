@@ -1,8 +1,14 @@
 package br.edu.infnet.appagendamentocarga.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appagendamentocarga.exceptions.ChassiInvalidoException;
 import br.edu.infnet.appagendamentocarga.exceptions.PortoInvalidoException;
 
+
+@Entity
+@Table(name = "TVeiculo")
 public class Veiculo extends Carga {
 	
 
@@ -21,12 +27,12 @@ public class Veiculo extends Carga {
 	}
 		
 	
-	public Veiculo(String navio, String documento, String porto, String chassi, String montadora, String modelo) {
-		this();
-		this.chassi = chassi;
-		this.montadora = montadora;
-		this.modelo = modelo;
-	}
+//	public Veiculo(String navio, String documento, String porto, String chassi, String montadora, String modelo) {
+//		this();
+//		this.chassi = chassi;
+//		this.montadora = montadora;
+//		this.modelo = modelo;
+//	}
 	
 	
 	@Override

@@ -29,6 +29,9 @@
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
+		        <th>Navio</th>
+		        <th>Documento</th>
+		        <th>Porto</th>
 		        <th>Chassi</th>
 		        <th>Modelo</th>
 		        <th>Montadora</th>
@@ -37,6 +40,9 @@
 		    <tbody>
 		      <c:forEach var="a" items="${lista}">
 		      <tr>
+		        <td>${a.navio}</td>
+		        <td>${a.documento}</td>
+		        <td>${a.porto}</td>
 		        <td>${a.chassi}</td>
 		        <td>${a.modelo}</td>
 		        <td>${a.montadora}</td>

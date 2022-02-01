@@ -6,11 +6,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.appagendamentocarga.model.domain.Conteiner;
+import br.edu.infnet.appagendamentocarga.model.domain.Veiculo;
 
 @Repository
-public interface ConteinerRepository extends CrudRepository<Conteiner, Integer> {
+public interface VeiculoRepository extends CrudRepository<Veiculo, Integer> {
 
-	List<Conteiner> findAll(Sort by);
+	List<Veiculo> findAll(Sort by);
 
 }

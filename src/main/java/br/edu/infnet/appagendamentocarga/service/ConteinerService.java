@@ -3,6 +3,7 @@ package br.edu.infnet.appagendamentocarga.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appagendamentocarga.model.domain.Conteiner;
@@ -16,7 +17,7 @@ public class ConteinerService {
 
 	public List<Conteiner> obterLista(){
 
-		return (List<Conteiner>) conteinerRepository.findAll();
+		return (List<Conteiner>) conteinerRepository.findAll(Sort.by(Sort.Direction.ASC, "numero"));
 	}
 	
 //	public List<Conteiner> obterLista(Carga carga){

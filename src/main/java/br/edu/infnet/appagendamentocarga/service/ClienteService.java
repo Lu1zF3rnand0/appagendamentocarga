@@ -1,8 +1,9 @@
-package br.edu.infnet.appagendamentocarga.service;
+ package br.edu.infnet.appagendamentocarga.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appagendamentocarga.model.domain.Cliente;
@@ -22,7 +23,7 @@ public class ClienteService {
 	
 	public List<Cliente> obterLista(Usuario usuario){
 
-		return (List<Cliente>) clienteRepository.findAll(usuario.getId());
+		return (List<Cliente>) clienteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
 	}
 
 	public void incluir(Cliente cliente) {
