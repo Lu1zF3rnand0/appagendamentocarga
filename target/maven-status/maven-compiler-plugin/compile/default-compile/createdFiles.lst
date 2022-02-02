@@ -15,6 +15,7 @@ br\edu\infnet\appagendamentocarga\model\tests\CargaTest.class
 br\edu\infnet\appagendamentocarga\service\ClienteService.class
 br\edu\infnet\appagendamentocarga\controller\ClienteController.class
 br\edu\infnet\appagendamentocarga\model\domain\Endereco.class
+br\edu\infnet\appagendamentocarga\controller\CargaController.class
 br\edu\infnet\appagendamentocarga\model\domain\Usuario.class
 br\edu\infnet\appagendamentocarga\model\tests\ArquivoTeste.class
 br\edu\infnet\appagendamentocarga\controller\UsuarioController.class
@@ -27,6 +28,7 @@ br\edu\infnet\appagendamentocarga\controller\EnderecoControler.class
 br\edu\infnet\appagendamentocarga\model\domain\Conteiner.class
 br\edu\infnet\appagendamentocarga\model\domain\Agendamento.class
 br\edu\infnet\appagendamentocarga\exceptions\TamanhoInvalidoException.class
+br\edu\infnet\appagendamentocarga\repository\CargaRepository.class
 br\edu\infnet\appagendamentocarga\model\domain\Veiculo.class
 br\edu\infnet\appagendamentocarga\model\tests\CargaSoltaTest.class
 br\edu\infnet\appagendamentocarga\model\tests\VeiculoTest.class
@@ -34,7 +36,10 @@ br\edu\infnet\appagendamentocarga\clients\IEnderecoClient.class
 br\edu\infnet\appagendamentocarga\repository\UsuarioRepository.class
 br\edu\infnet\appagendamentocarga\AppagendamentocargaApplication.class
 br\edu\infnet\appagendamentocarga\model\domain\Carga.class
+br\edu\infnet\appagendamentocarga\service\CargaService.class
 br\edu\infnet\appagendamentocarga\exceptions\PortoInvalidoException.class
 br\edu\infnet\appagendamentocarga\model\domain\CargaSolta.class
 br\edu\infnet\appagendamentocarga\UsuarioLoader.class
+br\edu\infnet\appagendamentocarga\service\VeiculoService.class
 br\edu\infnet\appagendamentocarga\CargaLoader.class
+br\edu\infnet\appagendamentocarga\repository\VeiculoRepository.class

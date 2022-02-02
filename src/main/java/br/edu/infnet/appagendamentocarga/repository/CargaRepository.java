@@ -7,14 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.appagendamentocarga.model.domain.Conteiner;
+import br.edu.infnet.appagendamentocarga.model.domain.Carga;
 
 @Repository
-public interface ConteinerRepository extends CrudRepository<Conteiner, Integer> {
+public interface CargaRepository extends CrudRepository<Carga, Integer> {
 
-	@Query("from Conteiner c where c.usuario.id = :userid")
-	List<Conteiner> findAll(Integer userid, Sort by);
-	
-	List<Conteiner> findAll(Sort by);
+	@Query("from Carga c where c.usuario.id = :userid")
+	List<Carga> findAll(Integer userid, Sort by);
 
 }

@@ -4,17 +4,39 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TAgendamento")
 public class Agendamento {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private LocalDateTime data;
 	private String tipo;
 	private String transportador;
+	
+	@OneToOne(cascade = CascadeType.DETACH) 
+	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
+	
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Carga> cargas;
 	
-	protected static int cont;
-	
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	@Override
 	public String toString() {
@@ -25,8 +47,7 @@ public class Agendamento {
 	
 	
 	public Agendamento() {
-		data = LocalDateTime.now();
-		this.id = cont++;
+		this.data = LocalDateTime.now();
 	}
 	
 	
@@ -60,6 +81,10 @@ public class Agendamento {
 	public LocalDateTime getData() {
 		return data;
 	}
+	
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -77,4 +102,15 @@ public class Agendamento {
 		this.cargas = cargas;
 	}
 
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	
 }

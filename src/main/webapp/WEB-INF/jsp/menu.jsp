@@ -12,11 +12,11 @@
       <c:if test="${not empty user}">
 	      <li><a href="/usuarios">Usuário</a></li>
 	      <li><a href="/clientes">Cliente</a></li>
-	      <li><a href="#">Carga</a></li>
+	      <li><a href="/cargas">Carga</a></li>
 	      <li><a href="/conteineres">Conteiner</a></li>
 	      <li><a href="/veiculos">Veiculo</a></li>
-	      <li><a href="/cargas">Carga Solta</a></li>
-	      <li><a href="#">Agendamento</a></li>
+	      <li><a href="/cargasSolta">Carga Solta</a></li>
+	      <li><a href="/agendamentos">Agendamento</a></li>
       </c:if>
     </ul>
     <ul class="nav navbar-nav navbar-right">

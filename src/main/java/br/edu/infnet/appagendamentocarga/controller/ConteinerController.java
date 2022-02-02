@@ -33,12 +33,14 @@ public class ConteinerController {
 	@GetMapping(value = "/conteineres")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 		
-		model.addAttribute("lista", conteinerService.obterLista());
+		model.addAttribute("lista", conteinerService.obterLista(usuario));
 		return "conteiner/lista";
 	}
 	
 	@PostMapping(value = "/conteiner/incluir")
 	public String incluir(Model model, Conteiner conteiner, @SessionAttribute("user") Usuario usuario) {
+		
+		conteiner.setUsuario(usuario);
 		
 		conteinerService.incluir(conteiner);
 		model.addAttribute("mensagem", "O conteiner "+conteiner.getNumero()+" foi cadastrado com sucesso!!!");

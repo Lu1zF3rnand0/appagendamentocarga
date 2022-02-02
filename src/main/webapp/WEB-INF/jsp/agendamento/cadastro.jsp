@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta charset="ISO-8859-1">
-<title>Cadastro de Agendamento</title>
+<meta charset="UTF-8">
+<title>Cadastro de Agendamentos</title>
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -15,70 +15,36 @@
 	<div class="container mt-3">
 	  <h2>Cadastramento de Agendamentos</h2>
 	  
-	  <form action="/aluno/incluir" method="post">
+	<form action="/agendamento/incluir" method="post">
+	  
+		<div class="form-group">
+	  		<label>Clientes:</label>
+	  		<select class="form-control" name="cliente.id">
+	  			<c:forEach var="c" items="${clientes}">
+	  				<option value="${c.id}">${c.nome}</option>
+	  			</c:forEach>
+	  		</select>
+	  	</div>
+	  	  
 	    <div class="mb-3 mt-3">
-	    <label>Nome:</label>
-	      <input type="text" class="form-control" placeholder="Entre com seu nome" name="nome" value="Luiz">
+	    	<label>Tipo:</label>
+	      	<input type="text" class="form-control" placeholder="Entre com o tipo de agendamento" name="tipo" value="I">
 	    </div>
 	    
 	    <div class="mb-3 mt-3">
-	      <label>E-mail:</label>
-	      <input type="email" class="form-control" placeholder="Entre com seu e-mail" name="email" value="luiz@luiz.com"> 
+	      	<label>Transportador:</label>
+	    	<input type="text" class="form-control" placeholder="Entre com o transportador" name="transportador" value="MSC Transportes"> 
 	    </div>
 	    
-	    <div class="mb-3 mt-3">
-	    <label>Idade:</label>
-	      <input type="text" class="form-control" placeholder="Entre com sua idade" name="idade" value="32">
-	    </div>
-	    
-	    <div class="mb-3 mt-3">
-	    <label>Mensalidade:</label>
-	      <input type="text" class="form-control" placeholder="Entre com sua mensalidade" name="mensalidade" value="999">
-	    </div>
-	    
-	    <div class="mb-3 mt-3">
-		    <label>Curso:</label>
-		    <div class="form-check">
-		      <input type="radio" class="form-check-input" name="curso" value="G" >
-		      <label class="form-check-label" for="radio1">Graduação</label>
-		    </div>
-		    <div class="form-check">
-		      <input type="radio" class="form-check-input" name="curso" value="E" checked>
-		      <label class="form-check-label" for="radio2">Especialização</label>
-		    </div>
-		    <div class="form-check">
-		      <input type="radio" class="form-check-input" name="curso" value="M">
-		      <label class="form-check-label" for="radio2">Mestrado</label>
-		    </div>
-	    </div>
-	       
-	    <div class="mb-3 mt-3">
-		    <label>Disciplinas:</label>
-		    <div class="form-check">
-		      <input type="checkbox" class="form-check-input" name="disciplinas" value="Fundamentos">
-		      <label class="form-check-label" for="radio2">Fundamentos Java</label>
-		    </div>
-		    <div class="form-check">
-		      <input type="checkbox" class="form-check-input"  name="disciplinas" value="Java Web" checked>
-		      <label class="form-check-label" for="radio1">Java Web</label>
-		    </div>
-		    <div class="form-check">
-		      <input type="checkbox" class="form-check-input" name="disciplinas" value="Programa OO">
-		      <label class="form-check-label" for="radio2">POO</label>
-		    </div>
-	    </div>
-	    
-	    <div class="mb-3 mt-3">
-		    <label class="form-label">Região</label>
-		    <select class="form-select" name="regiao">
-		      <option value="S">Sul</option>
-		      <option value="SU" selected>Sudeste</option>
-		      <option value="C">Centro-Oeste</option>
-		      <option value="N">Norte</option>
-		      <option value="NO">Nordeste</option>
-		    </select>
-	    </div>
-	    
+  	    <div class="mb-3 mt-3" style="margin-top:25px">
+	    	<label>Cargas:</label>
+	    		<c:forEach var="c" items="${cargas}">
+		    		<div class="checkbox">
+		    			<label><input type="checkbox" name="cargasId" value="${c.id}">${c.documento}</label>
+		    		</div>
+		    	</c:forEach>	
+	   	</div>  
+    
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
 	</div>

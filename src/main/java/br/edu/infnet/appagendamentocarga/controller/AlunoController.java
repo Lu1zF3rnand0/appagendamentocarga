@@ -1,7 +1,6 @@
 package br.edu.infnet.appagendamentocarga.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;

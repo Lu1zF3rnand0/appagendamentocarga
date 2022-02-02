@@ -30,7 +30,10 @@
 		        <th>ID</th>
 		        <th>Nome</th>
 		        <th>E-mail</th>
+		        <th>Endereço</th>
 		        <th>Clientes</th>
+		        <th>Cargas</th>
+		        <th>Agendamentos</th>
 		        <c:if test="${user.admin}">
 		        	<th></th>
 		        </c:if>
@@ -42,7 +45,10 @@
 			        <td>${u.id}</td>
 			        <td>${u.nome}</td>
 			        <td>${u.email}</td>
+			        <td>${u.endereco.cep}</td>
 			        <td>${u.clientes.size()}</td>
+			        <td>${u.cargas.size()}</td>
+			        <td>${u.agendamentos.size()}</td>
 			        	<td><c:if test="${user.admin && user.id != u.id}" ><a href="/usuario/${u.id}/excluir">excluir</a> </c:if></td>			       
 			      </tr>
 		      </c:forEach>		      

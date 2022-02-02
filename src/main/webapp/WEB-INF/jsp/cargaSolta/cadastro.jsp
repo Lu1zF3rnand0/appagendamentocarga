@@ -14,7 +14,7 @@
 	<div class="container mt-3">
 	  <h2>Cadastramento de Cargas Soltas</h2>
 	  
-	  <form action="/carga/incluir" method="post">
+	  <form action="/cargaSolta/incluir" method="post">
 	    <div class="mb-3 mt-3">
 	    <label>Navio:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o nome do navio" name="navio" value="Navio Teste">

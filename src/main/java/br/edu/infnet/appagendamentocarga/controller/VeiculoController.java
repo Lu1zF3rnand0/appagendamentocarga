@@ -34,13 +34,15 @@ public class VeiculoController {
 	@GetMapping(value = "/veiculos")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 		
-		model.addAttribute("lista", veiculoService.obterLista());
+		model.addAttribute("lista", veiculoService.obterLista(usuario));
 		return "veiculo/lista";
 	}
 	
 	
 	@PostMapping(value = "/veiculo/incluir")
 	public String incluir(Model model, Veiculo veiculo, @SessionAttribute("user") Usuario usuario) {
+		
+		veiculo.setUsuario(usuario);
 		
 		veiculoService.incluir(veiculo);
 		model.addAttribute("mensagem", "O veiculo "+veiculo.getChassi()+" foi cadastrado com sucesso!!!");

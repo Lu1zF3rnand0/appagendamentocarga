@@ -15,7 +15,8 @@
 	<div class="container mt-3">
 	  <h2>Cadastramento de Clientes</h2>
 	  
-	  <form action="/cliente/incluir" method="post">
+	  <form action="/cliente/incluir" method="post"> 
+	  	  
 	    <div class="mb-3 mt-3">
 	    <label>Nome:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o nome" name="nome" value="Luiz">

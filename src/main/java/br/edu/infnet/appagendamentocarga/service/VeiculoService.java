@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
 import br.edu.infnet.appagendamentocarga.model.domain.Veiculo;
 import br.edu.infnet.appagendamentocarga.repository.VeiculoRepository;
 
@@ -20,10 +21,10 @@ public class VeiculoService {
 		return (List<Veiculo>) veiculoRepository.findAll(Sort.by(Sort.Direction.ASC, "chassi"));
 	}
 	
-//	public List<Conteiner> obterLista(Carga carga){
-//
-//		return (List<Conteiner>) conteinerRepository.findAll(carga.getId());
-//	}
+	public List<Veiculo> obterLista(Usuario usuario){
+
+		return (List<Veiculo>) veiculoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "chassi"));
+	}
 
 	public void incluir(Veiculo veiculo) {
 
