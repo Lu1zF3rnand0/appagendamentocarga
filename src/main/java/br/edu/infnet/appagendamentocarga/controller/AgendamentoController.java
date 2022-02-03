@@ -1,14 +1,20 @@
 package br.edu.infnet.appagendamentocarga.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appagendamentocarga.model.domain.Agendamento;
+import br.edu.infnet.appagendamentocarga.model.domain.Carga;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
 import br.edu.infnet.appagendamentocarga.service.AgendamentoService;
 import br.edu.infnet.appagendamentocarga.service.CargaService;
@@ -45,8 +51,16 @@ public class AgendamentoController {
 	}
 
 	@PostMapping(value = "/agendamento/incluir")
-	public String incluir(Model model, Agendamento agendamento,  @SessionAttribute("user") Usuario usuario) {
-				
+	public String incluir(Model model, Agendamento agendamento, @RequestParam String[] cargasId, @SessionAttribute("user") Usuario usuario) {
+						
+		List<Carga> cargas = new ArrayList<Carga>();
+		
+		for (String id : cargasId) {
+			cargas.add(cargaService.obterPorId(Integer.valueOf(id)));
+		}
+		
+		agendamento.setCargas(cargas);
+		
 		agendamento.setUsuario(usuario);
 		
 		agendamentoService.incluir(agendamento);

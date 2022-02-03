@@ -9,10 +9,12 @@ C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentoca
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\controller\CargaController.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\model\tests\ClienteTest.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\repository\ClienteRepository.java
+C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\controller\AgendamentoController.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\service\VeiculoService.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\model\domain\Agendamento.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\service\UsuarioService.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\model\tests\AgendamentoTest.java
+C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\repository\AgendamentoRepository.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\repository\VeiculoRepository.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\controller\CargaSoltaController.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\model\tests\ConteinerTest.java
@@ -41,5 +43,6 @@ C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentoca
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\controller\VeiculoController.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\repository\CargaRepository.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\service\EnderecoService.java
+C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\service\AgendamentoService.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\exceptions\MercadoriaInvalidaException.java
 C:\Projetos Pos\appagendamentocarga\src\main\java\br\edu\infnet\appagendamentocarga\UsuarioLoader.java
