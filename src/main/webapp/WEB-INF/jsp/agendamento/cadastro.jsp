@@ -10,6 +10,8 @@
 </head>
 <body>
 
+	<c:set var="botao" value=""/>
+
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container mt-3">
@@ -18,12 +20,19 @@
 	<form action="/agendamento/incluir" method="post">
 	  
 		<div class="form-group">
-	  		<label>Clientes:</label>
-	  		<select class="form-control" name="cliente.id">
-	  			<c:forEach var="c" items="${clientes}">
-	  				<option value="${c.id}">${c.nome}</option>
-	  			</c:forEach>
-	  		</select>
+			<c:if test="${not empty clientes}">	
+		  		<label>Clientes:</label>
+		  		<select class="form-control" name="cliente.id">
+		  			<c:forEach var="c" items="${clientes}">
+		  				<option value="${c.id}">${c.nome}</option>
+		  			</c:forEach>
+		  		</select>
+		  	</c:if>
+		  	
+		  	<c:if test="${empty clientes}">	
+		  		<c:set var="botao" value="disabled"/>
+		  		<label>Não existe clientes cadastrados!</label>
+		  	</c:if>
 	  	</div>
 	  	  
 	    <div class="mb-3 mt-3">
@@ -36,16 +45,24 @@
 	    	<input type="text" class="form-control" placeholder="Entre com o transportador" name="transportador" value="MSC Transportes"> 
 	    </div>
 	    
+	    
   	    <div class="mb-3 mt-3" style="margin-top:25px">
-	    	<label>Cargas:</label>
-	    		<c:forEach var="c" items="${cargas}">
-		    		<div class="checkbox">
-		    			<label><input type="checkbox" name="cargasId" value="${c.id}">${c.documento}</label>
-		    		</div>
-		    	</c:forEach>	
+  	    	<c:if test="${not empty cargas}">		
+		    	<label>Cargas:</label>
+		    	<c:forEach var="c" items="${cargas}">
+			    	<div class="checkbox">
+			    		<label><input type="checkbox" name="cargasId" value="${c.id}">${c.documento}</label>
+			    	</div>
+			    </c:forEach>
+			</c:if>	
+			
+			<c:if test="${empty cargas}">
+				<c:set var="botao" value="disabled"/>
+				<label>Não existe produtos cadastrados!</label>
+			</c:if>	
 	   	</div>  
     
-	    <button type="submit" class="btn btn-primary">Cadastrar</button>
+	    <button ${botao} type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
 	</div>
 

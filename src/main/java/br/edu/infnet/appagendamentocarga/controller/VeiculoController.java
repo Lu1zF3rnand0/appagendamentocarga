@@ -19,45 +19,45 @@ import br.edu.infnet.appagendamentocarga.service.VeiculoService;
 public class VeiculoController {
 
 	List<Veiculo> veiculos = new ArrayList<Veiculo>();
-	
+
 	@Autowired
 	private VeiculoService veiculoService;
-			
-			
+
 	@GetMapping(value = "/veiculo")
 	public String telaCadatro() {
-		
+
 		return "veiculo/cadastro";
 	}
-	
-	
+
 	@GetMapping(value = "/veiculos")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
-		
+
 		model.addAttribute("lista", veiculoService.obterLista(usuario));
 		return "veiculo/lista";
 	}
-	
-	
+
 	@PostMapping(value = "/veiculo/incluir")
 	public String incluir(Model model, Veiculo veiculo, @SessionAttribute("user") Usuario usuario) {
-		
+
 		veiculo.setUsuario(usuario);
-		
+
 		veiculoService.incluir(veiculo);
-		model.addAttribute("mensagem", "O veiculo "+veiculo.getChassi()+" foi cadastrado com sucesso!!!");
+		model.addAttribute("mensagem", "O veiculo " + veiculo.getChassi() + " foi cadastrado com sucesso!!!");
 		return telaLista(model, usuario);
 	}
-	
-	
+
 	@GetMapping(value = "/veiculo/{id}/excluir")
 	public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
-		
+
 		Veiculo veiculo = veiculoService.obterPorId(id);
-		veiculoService.excluir(id);
-		
-		model.addAttribute("mensagem", "O veiculo "+veiculo.getChassi()+" foi removido com sucesso!!!");
-		
+
+		try {
+			veiculoService.excluir(id);
+			model.addAttribute("mensagem", "O veiculo " + veiculo.getChassi() + " foi removido com sucesso!!!");
+		} catch (Exception e) {
+			model.addAttribute("mensagem", "Impossivel remover o veiculo " + veiculo.getChassi() + ", ele está associado à algum agendamento!!!");
+		}
+
 		return telaLista(model, usuario);
 	}
 }

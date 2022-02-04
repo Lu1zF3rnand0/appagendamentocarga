@@ -12,14 +12,9 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 <div class="container mt-3">
-  <h2>AppAgendamentoCarga: Sistema de agendamento de cargas</h2>
-  <h3>Luiz Fernando</h3>
-  <h4><a href="https://github.com/Lu1zF3rnand0/posJava">Projeto</a></h4>
-  
-  
-  <!--  <h4>Cadastramento de Conteineres</h4>-->
-</div>
+  <h1>Engenharia de Software - Java</h1>
 
+</div>
 
 </body>
 </html>
