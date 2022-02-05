@@ -18,12 +18,12 @@ public class AgendamentoService {
 
 	public List<Agendamento> obterLista(){
 		
-		return (List<Agendamento>) agendamentoRepository.findAll(Sort.by(Sort.Direction.ASC, "transportador"));
+		return agendamentoRepository.findAll(Sort.by(Sort.Direction.ASC, "transportador"));
 	}
 	
 	public List<Agendamento> obterLista(Usuario usuario){
 		
-		return (List<Agendamento>) agendamentoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "data"));
+		return agendamentoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "data"));
 	}
 	
 	public void incluir(Agendamento agendamento) {
@@ -37,6 +37,10 @@ public class AgendamentoService {
 	
 	public Agendamento obterPorId(Integer id) {
 		return agendamentoRepository.findById(id).orElse(null);
+	}
+	
+	public Long obterQtd() {
+		return agendamentoRepository.count();
 	}
 }
 

@@ -35,6 +35,8 @@
 		        <th>Data</th>
 		        <th>Tipo</th>
 		        <th>Transportador</th>
+		        <th>Cliente</th>
+		        <th>Qtd. Cargas</th>
 		        <th></th>
 		      </tr>
 		    </thead>
@@ -45,6 +47,8 @@
 		        <td>${a.data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</td>
 		        <td>${a.tipo}</td>
 		        <td>${a.transportador}</td>
+		        <td>${a.cliente.nome}</td>
+		        <td>${a.cargas.size()}</td>
 		        <td><a href="/agendamento/${a.id}/excluir">excluir</a></td>
 		      </tr>
 		      </c:forEach>

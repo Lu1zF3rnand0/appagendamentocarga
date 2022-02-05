@@ -18,7 +18,7 @@ public class CargaService {
 	
 	public List<Carga> obterLista(Usuario usuario){
 
-		return (List<Carga>) cargaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "documento"));
+		return cargaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "documento"));
 	}
 
 	public void excluir(Integer id) {
@@ -30,4 +30,9 @@ public class CargaService {
 
 		return cargaRepository.findById(id).orElse(null);
 	}
+
+	public Long obterQtd() {
+		return cargaRepository.count();
+	}
+	
 }

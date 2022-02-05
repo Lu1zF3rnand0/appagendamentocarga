@@ -1,8 +1,13 @@
 package br.edu.infnet.appagendamentocarga.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appagendamentocarga.exceptions.MercadoriaInvalidaException;
 import br.edu.infnet.appagendamentocarga.exceptions.PortoInvalidoException;
 
+@Entity
+@Table(name = "TCargaSolta")
 public class CargaSolta extends Carga {
 
 	private String mercadoria;
@@ -58,9 +63,12 @@ public class CargaSolta extends Carga {
 		this.mercadoria = mercadoria;
 	}
 	
+	
+	
 	public boolean isImo() {
 		return imo;
 	}
+
 	public void setImo(boolean imo) {
 		this.imo = imo;
 	}

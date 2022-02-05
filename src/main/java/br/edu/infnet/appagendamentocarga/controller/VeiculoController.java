@@ -55,7 +55,7 @@ public class VeiculoController {
 			veiculoService.excluir(id);
 			model.addAttribute("mensagem", "O veiculo " + veiculo.getChassi() + " foi removido com sucesso!!!");
 		} catch (Exception e) {
-			model.addAttribute("mensagem", "Impossivel remover o veiculo " + veiculo.getChassi() + ", ele está associado à algum agendamento!!!");
+			model.addAttribute("mensagemErro", "Impossivel remover o veiculo " + veiculo.getChassi() + ", ele está associado à algum agendamento!!!");
 		}
 
 		return telaLista(model, usuario);

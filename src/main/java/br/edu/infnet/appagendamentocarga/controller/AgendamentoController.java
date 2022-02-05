@@ -1,7 +1,6 @@
 package br.edu.infnet.appagendamentocarga.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,21 +51,21 @@ public class AgendamentoController {
 
 	@PostMapping(value = "/agendamento/incluir")
 	public String incluir(Model model, Agendamento agendamento, @RequestParam String[] cargasId, @SessionAttribute("user") Usuario usuario) {
-						
-		List<Carga> cargas = new ArrayList<Carga>();
+
+		List<Carga> cargas = new ArrayList<>();
 		
 		for (String id : cargasId) {
 			cargas.add(cargaService.obterPorId(Integer.valueOf(id)));
 		}
 		
-		agendamento.setCargas(cargas);
-		
-		agendamento.setUsuario(usuario);
-		
+		agendamento.setCargas(cargas);			
+		agendamento.setUsuario(usuario);			
 		agendamentoService.incluir(agendamento);
-		
+		System.out.println(agendamento.getCliente());
+		System.out.println(cargas.size());
 		model.addAttribute("mensagem", "O agendamento numero "+agendamento.getId()+" foi cadastrado com sucesso!!!");
-		
+
+			
 		return telaLista(model, usuario);
 	}
 

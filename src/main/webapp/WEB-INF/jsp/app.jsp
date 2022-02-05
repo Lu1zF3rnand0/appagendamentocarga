@@ -11,12 +11,14 @@
 	
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
-<div class="container mt-3">
-  <h1>Engenharia de Software - Java</h1>
-  <h2>PGPJAV01C2-71-P1 - Java Web</h2>
-  <h3><a href="https://github.com/Lu1zF3rnand0/appagendamentocarga">AppAgendamentoCarga: Sistema de agendamento de cargas</a></h3>
-  
-</div>
+	<div class="container">
+		<h2>Quantidade de registros</h2>
+		<ul class="list-group">
+			<c:forEach var="m" items="${myMap}">
+				<li class="list-group-item">${m.key}<span class="badge">${m.value}</span></li>
+			</c:forEach>
+		</ul>
+	</div>
 
 
 </body>

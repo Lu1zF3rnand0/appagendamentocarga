@@ -34,7 +34,7 @@ public class CargaController {
 			cargaService.excluir(id);
 			model.addAttribute("mensagem", "A carga " + carga.getDocumento() + " foi removido com sucesso!!!");
 		} catch (Exception e) {
-			model.addAttribute("mensagem", "Impossivel remover o carga " + carga.getDocumento() + ", ela está associada à algum agendamento!!!");
+			model.addAttribute("mensagemErro", "Impossivel remover o carga " + carga.getDocumento() + ", ela está associada à algum agendamento!!!");
 		}
 
 		return telaLista(model, usuario);

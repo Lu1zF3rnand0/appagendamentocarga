@@ -40,4 +40,8 @@ public class VeiculoService {
 
 		return veiculoRepository.findById(id).orElse(null);
 	}
+	
+	public Long obterQtd() {
+		return veiculoRepository.count();
+	}
 }

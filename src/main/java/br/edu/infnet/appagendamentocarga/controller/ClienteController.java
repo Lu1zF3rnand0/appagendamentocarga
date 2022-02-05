@@ -55,7 +55,7 @@ public class ClienteController {
 			clienteService.excluir(id);
 			model.addAttribute("mensagem", "O solicitante " + cliente.getNome() + " foi removido com sucesso!!!");
 		} catch (Exception e) {
-			model.addAttribute("mensagem", "Impossivel remover o cliente " + cliente.getNome() + ", ele está associado à algum agendamento!!!");
+			model.addAttribute("mensagemErro", "Impossivel remover o cliente " + cliente.getNome() + ", ele está associado à algum agendamento!!!");
 		}
 
 		return telaLista(model, usuario);

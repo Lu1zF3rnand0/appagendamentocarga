@@ -23,7 +23,7 @@ public class ClienteService {
 	
 	public List<Cliente> obterLista(Usuario usuario){
 
-		return (List<Cliente>) clienteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+		return clienteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
 	}
 
 	public void incluir(Cliente cliente) {
@@ -39,5 +39,9 @@ public class ClienteService {
 	public Cliente obterPorId(Integer id) {
 
 		return clienteRepository.findById(id).orElse(null);
+	}
+	
+	public Long obterQtd() {
+		return clienteRepository.count();
 	}
 }

@@ -17,9 +17,22 @@
 	<div class="container mt-3">
 	  <h2>Cadastramento de Agendamentos</h2>
 	  
+	  <c:if test="${not empty mensagemErro}">
+		<div class="alert alert-danger">
+		  <strong>Erro!</strong> ${mensagemErro}
+		</div>	  
+	  </c:if>
+	  
+	  <c:if test="${not empty mensagem}">
+		<div class="alert alert-danger">
+		  <strong>Confirmação!</strong> ${mensagem}
+		</div>	  
+	  </c:if>
+	  
 	<form action="/agendamento/incluir" method="post">
 	  
 		<div class="form-group">
+		
 			<c:if test="${not empty clientes}">	
 		  		<label>Clientes:</label>
 		  		<select class="form-control" name="cliente.id">
@@ -34,19 +47,21 @@
 		  		<label>Não existe clientes cadastrados!</label>
 		  	</c:if>
 	  	</div>
-	  	  
-	    <div class="mb-3 mt-3">
-	    	<label>Tipo:</label>
-	      	<input type="text" class="form-control" placeholder="Entre com o tipo de agendamento" name="tipo" value="I">
-	    </div>
-	    
+
 	    <div class="mb-3 mt-3">
 	      	<label>Transportador:</label>
 	    	<input type="text" class="form-control" placeholder="Entre com o transportador" name="transportador" value="MSC Transportes"> 
 	    </div>
 	    
+	    <div class="mb-3 mt-3" style="margin-top:20px">
+		    <label>Tipo:</label>
+		    <div class="radio">
+				<label style="margin-right:10px"><input type="radio" name="tipo" value="Importação">Importação</label>  
+				<label><input type="radio" name="tipo" value="Exportação">Exportação</label>
+			</div>
+		</div>
 	    
-  	    <div class="mb-3 mt-3" style="margin-top:25px">
+  	    <div class="mb-3 mt-3" style="margin-top:20px">
   	    	<c:if test="${not empty cargas}">		
 		    	<label>Cargas:</label>
 		    	<c:forEach var="c" items="${cargas}">

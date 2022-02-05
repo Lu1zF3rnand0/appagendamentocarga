@@ -20,6 +20,10 @@ public class UsuarioService {
 		return usuarioRepository.autenticacao(email, senha);
 	}
 	
+	public Long obterQtd() {
+		return usuarioRepository.count();
+	}
+	
 	public void incluir(Usuario usuario) {
 		
 		usuarioRepository.save(usuario);
@@ -27,7 +31,7 @@ public class UsuarioService {
 
 	public List<Usuario> obterLista() {
 		
-		return (List<Usuario>) usuarioRepository.findAll(Sort.by(Sort.Direction.ASC, "email"));
+		return usuarioRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 	}
 
 	public Usuario obterPorId(Integer id) {
@@ -39,4 +43,5 @@ public class UsuarioService {
 		
 		usuarioRepository.deleteById(id);		
 	}
+	
 }

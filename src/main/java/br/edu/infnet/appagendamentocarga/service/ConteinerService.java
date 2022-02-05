@@ -18,12 +18,12 @@ public class ConteinerService {
 
 	public List<Conteiner> obterLista(){
 
-		return (List<Conteiner>) conteinerRepository.findAll(Sort.by(Sort.Direction.ASC, "numero"));
+		return conteinerRepository.findAll(Sort.by(Sort.Direction.ASC, "numero"));
 	}
 	
 	public List<Conteiner> obterLista(Usuario usuario){
 
-		return (List<Conteiner>) conteinerRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "numero"));
+		return conteinerRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "numero"));
 	}
 
 	public void incluir(Conteiner conteiner) {
@@ -39,5 +39,9 @@ public class ConteinerService {
 	public Conteiner obterPorId(Integer id) {
 
 		return conteinerRepository.findById(id).orElse(null);
+	}
+	
+	public Long obterQtd() {
+		return conteinerRepository.count();
 	}
 }

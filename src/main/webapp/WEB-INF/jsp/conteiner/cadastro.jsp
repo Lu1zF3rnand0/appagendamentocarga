@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Cadastro de Conteiner</title>
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -42,16 +42,33 @@
 	      <input type="text" class="form-control" placeholder="Entre com o numero do conteiner" name="numero" value="MSC2554456">
 	    </div>
 	    
-	    <div class="mb-3 mt-3">
+<!--      <div class="mb-3 mt-3">
 	    <label>Tamanho:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o tamanho do conteiner" name="tamanho" value="40">
 	    </div>
+-->		    
+
+   	    <div class="mb-3 mt-3" style="margin-top:20px">
+	    	<label>Tamanho:</label>
+	    	<div class="radio">
+				<label style="margin-right:10px"><input type="radio" name="tamanho" value="20">20</label>  
+				<label><input type="radio" name="tamanho" value="40">40</label>
+			</div>
+		</div>
+		
+		<div class="mb-3 mt-3" style="margin-top:20px; margin-bottom:20px">
+	    	<label>Status:</label>
+	    	<div class="radio">
+				<label style="margin-right:10px"><input type="radio" name="status" value="Cheio">Cheio</label>  
+				<label><input type="radio" name="status" value="Vazio">Vazio</label>
+			</div>
+		</div>
 	       
-	    <div class="mb-3 mt-3">
+<!--	<div class="mb-3 mt-3">
 	    <label>Status:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o status do conteiner" name="status" value="cheio">
 	    </div>
-	
+-->		
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
 	</div>
