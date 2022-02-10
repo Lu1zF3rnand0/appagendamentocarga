@@ -49,7 +49,7 @@
 			        <td>${u.clientes.size()}</td>
 			        <td>${u.cargas.size()}</td>
 			        <td>${u.agendamentos.size()}</td>
-			        	<td><c:if test="${user.admin && user.id != u.id}" ><a href="/usuario/${u.id}/excluir">excluir</a> </c:if></td>			       
+			        	<td><c:if test="${user.admin && user.id != u.id}" ><a href='<c:url value="/usuario/${u.id}/excluir"/>'>excluir</a> </c:if></td>			       
 			      </tr>
 		      </c:forEach>		      
 		    </tbody>

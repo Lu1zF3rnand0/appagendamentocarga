@@ -53,7 +53,7 @@
 		        <td>${c.numero}</td>
 		        <td>${c.tamanho}</td>
 		        <td>${c.status}</td>
-		        <td><a href="/conteiner/${c.id}/excluir">excluir</a></td>	
+		        <td><a href='<c:url value="/conteiner/${c.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>
@@ -68,7 +68,7 @@
 	</div>
 	
 	<div class="container mt-3" align = "right">
-	  <form action="/conteiner" method="get">
+	  <form action='<c:url value="/conteiner"/>' method="get">
 	    <button type="submit" class="btn btn-primary">Novo</button>
 	  </form>
 	</div>

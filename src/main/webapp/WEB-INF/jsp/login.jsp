@@ -21,7 +21,7 @@
 	</c:if>
 	  
 	  <h2>Autenticação</h2>
-	  <form action="/login" method="post">
+	  <form action='<c:url value="/login"/>' method="post">
 	    <div class="mb-3 mt-3" style="margin-bottom:20px">
 	      <label>E-mail:</label>
 	      <input type="email" style="margin-bottom:10px" class="form-control" placeholder="Entre com o seu e-mail" name="email" value="luiz@gmail.com">

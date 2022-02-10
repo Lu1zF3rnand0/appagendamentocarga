@@ -50,7 +50,7 @@
 		        <td>${a.email}</td>
 		        <td>${a.telefone}</td>
 		        <td>${a.cnpj}</td>
-		        <td><a href="/cliente/${a.id}/excluir">excluir</a></td>
+		        <td><a href='<c:url value="/cliente/${a.id}/excluir"/>'>excluir</a></td>
 		      </tr>
 		      </c:forEach>
 		    </tbody>
@@ -66,7 +66,7 @@
 	</div>
 	
 	<div class="container mt-3" align = "right">
-		<form action="/cliente" method="get" >
+		<form action='<c:url value="/cliente"/>' method="get" >
 			<button type="submit" class="btn btn-primary">Novo</button>
 		</form>
 	</div>

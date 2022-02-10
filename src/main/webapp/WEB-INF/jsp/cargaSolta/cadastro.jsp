@@ -20,7 +20,7 @@
 		</div>	  
 	  </c:if>
 	  
-	  <form action="/cargaSolta/incluir" method="post">
+	  <form action='<c:url value="/cargaSolta/incluir"/>'  method="post">
 	    <div class="mb-3 mt-3">
 	    <label>Navio:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o nome do navio" name="navio" value="Navio Teste">

@@ -21,7 +21,7 @@
 		</div>	  
 	  </c:if>
 	  
-	  <form action="/conteiner/incluir" method="post">
+	  <form action='<c:url value="/conteiner/incluir"/>' method="post">
 	    <div class="mb-3 mt-3">
 	    <label>Navio:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o nome do navio" name="navio" value="Navio Teste">

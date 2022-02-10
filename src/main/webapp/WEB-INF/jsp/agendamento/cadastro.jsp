@@ -29,7 +29,7 @@
 		</div>	  
 	  </c:if>
 	  
-	<form action="/agendamento/incluir" method="post">
+	<form action='<c:url value="/agendamento/incluir"/>' method="post">
 	  
 		<div class="form-group">
 		

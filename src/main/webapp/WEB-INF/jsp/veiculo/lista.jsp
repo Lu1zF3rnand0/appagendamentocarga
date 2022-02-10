@@ -53,7 +53,7 @@
 		        <td>${v.chassi}</td>
 		        <td>${v.modelo}</td>
 		        <td>${v.montadora}</td>
-		        <td><a href="/veiculo/${v.id}/excluir">excluir</a></td>	
+		        <td><a href='<c:url value="/veiculo/${v.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>
@@ -68,7 +68,7 @@
 	</div>
 	
 	<div class="container mt-3" align = "right">
-	  <form action=/veiculo method="get">
+	  <form action='<c:url value="/veiculo"/>'  method="get">
 	    <button type="submit" class="btn btn-primary">Novo</button>
 	  </form>
 	</div>

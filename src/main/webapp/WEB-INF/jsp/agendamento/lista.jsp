@@ -49,7 +49,7 @@
 		        <td>${a.transportador}</td>
 		        <td>${a.cliente.nome}</td>
 		        <td>${a.cargas.size()}</td>
-		        <td><a href="/agendamento/${a.id}/excluir">excluir</a></td>
+		        <td><a href='<c:url value="/agendamento/${a.id}/excluir"/>'>excluir</a></td>
 		      </tr>
 		      </c:forEach>
 		    </tbody>

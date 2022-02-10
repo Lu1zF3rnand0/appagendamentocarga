@@ -49,7 +49,7 @@
 		      	<td>${c.navio}</td>
 		        <td>${c.documento}</td>
 		        <td>${c.porto}</td>
-		        <td><a href="/carga/${c.id}/excluir">excluir</a></td>	
+		        <td><a href='<c:url value="/carga/${c.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>

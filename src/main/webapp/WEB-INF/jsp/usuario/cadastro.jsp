@@ -20,7 +20,7 @@
 		</div>	  
 	  </c:if>
 	  
-	  <form action ="/cep" class="form-inline" method="post">
+	  <form action='<c:url value="/cep"/>' class="form-inline" method="post">
 	  	<div class="mb-3 mt-3">
 	  		<label>Busca por CEP:</label>
 	  		<input type="text" class="form-control" placeholder="Entre com o seu cep" name="cep" value="25930000">
@@ -30,7 +30,7 @@
 	 </form>
 	    
 
-	  <form action="/usuario/incluir" method="post">
+	  <form action='<c:url value="/usuario/incluir"/>' method="post">
 	    <div class="mb-3 mt-3">
 	      <label>Nome:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o seu nome" name="nome" value="Luiz">

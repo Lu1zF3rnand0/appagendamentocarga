@@ -58,7 +58,7 @@
 		        	<c:if test="${cs.oog}">Sim</c:if> 
 		        	<c:if test="${!cs.oog}">Não</c:if> 
 		        </td>
-		        <td><a href="/cargaSolta/${cs.id}/excluir">excluir</a></td>	
+		        <td><a href='<c:url value="/cargaSolta/${cs.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>
@@ -73,7 +73,7 @@
 	</div>
 	
 	<div class="container mt-3" align = "right">
-	  <form action=/cargaSolta method="get">
+	  <form action='<c:url value="/cargaSolta"/>' method="get">
 	    <button type="submit" class="btn btn-primary">Novo</button>
 	  </form>
 	</div>
