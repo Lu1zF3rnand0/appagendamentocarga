@@ -3,9 +3,9 @@
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.appagendamentocarga.client.IClienteClient;
 import br.edu.infnet.appagendamentocarga.model.domain.Cliente;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
 import br.edu.infnet.appagendamentocarga.repository.ClienteRepository;
@@ -15,6 +15,9 @@ public class ClienteService {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private IClienteClient clienteClient;
 
 	public List<Cliente> obterLista(){
 
@@ -23,25 +26,35 @@ public class ClienteService {
 	
 	public List<Cliente> obterLista(Usuario usuario){
 
-		return clienteRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+		return clienteClient.obterListaPorUser(usuario.getId());	
+		//return clienteRepository.findAll(id);
 	}
 
 	public void incluir(Cliente cliente) {
 
-		clienteRepository.save(cliente);
+		clienteClient.incluir(cliente);
+		//clienteRepository.save(cliente);
 	}
 	
 	public void excluir(Integer id) {
 
-		clienteRepository.deleteById(id);
+		clienteClient.excluir(id);
+		//clienteRepository.deleteById(id);
 	}
 	
 	public Cliente obterPorId(Integer id) {
 
-		return clienteRepository.findById(id).orElse(null);
+		for (Cliente cliente : clienteClient.obterLista()) {
+			if (cliente.getId().equals(id)) {
+				return cliente;
+			}
+		}
+		
+		return null;
+		//return clienteRepository.findById(id).orElse(null);
 	}
 	
 	public Long obterQtd() {
-		return clienteRepository.count();
+		return (long) clienteClient.obterLista().size();
 	}
 }

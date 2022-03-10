@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "TUsuario")
 public class Usuario {
@@ -27,16 +29,19 @@ public class Usuario {
 	@JoinColumn(name = "idEndereco")
 	private Endereco endereco;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
+	@JsonBackReference(value="usuario-client")
 	private List<Cliente> clientes;
 	
 	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
+	@JsonBackReference(value="user-cargas")
 	private List<Carga> cargas;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
+	@JsonBackReference(value="user-agendamento")
 	private List<Agendamento> agendamentos;
 	
 	public Usuario() {
@@ -87,9 +92,6 @@ public class Usuario {
 		this.clientes = clientes;
 	}
 
-//	public void setSolicitantes(List<Cliente> clientes) {
-//		this.clientes = clientes;
-//	}
 
 	public Endereco getEndereco() {
 		return endereco;

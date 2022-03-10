@@ -13,11 +13,24 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import br.edu.infnet.appagendamentocarga.exceptions.PortoInvalidoException;
 
 @Entity
 @Table(name = "TCarga")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonTypeInfo( 		
+		use = JsonTypeInfo.Id.NAME, 		
+		include = JsonTypeInfo.As.PROPERTY, 		
+		property = "tipo")
+@JsonSubTypes({ 	
+	@JsonSubTypes.Type(value = Conteiner.class, name = "Conteiner"), 	
+	@JsonSubTypes.Type(value = CargaSolta.class, name = "CargaSolta"), 
+	@JsonSubTypes.Type(value = Veiculo.class, name = "Veiculo") 
+})
 public abstract class Carga {
 	
 	@Id
@@ -28,6 +41,7 @@ public abstract class Carga {
 	private String porto;
 	
 	@ManyToMany(mappedBy = "cargas")
+	@JsonIgnore
 	private List<Agendamento> agendamentos;
 	
 	@ManyToOne

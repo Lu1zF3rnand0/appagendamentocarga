@@ -29,7 +29,7 @@ public class ClienteController {
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
 		model.addAttribute("lista", clienteService.obterLista(usuario));
-
+		
 		return "cliente/lista";
 	}
 

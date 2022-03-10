@@ -34,7 +34,7 @@ public class AgendamentoController {
 	@GetMapping(value = "/agendamento")
 	public String telaCadastro(Model model, @SessionAttribute("user") Usuario usuario) {
 		
-		model.addAttribute("clientes",clienteService.obterLista(usuario));
+	    model.addAttribute("clientes",clienteService.obterLista(usuario));
 		
 		model.addAttribute("cargas",cargaService.obterLista(usuario));
 
@@ -61,9 +61,9 @@ public class AgendamentoController {
 		agendamento.setCargas(cargas);			
 		agendamento.setUsuario(usuario);			
 		agendamentoService.incluir(agendamento);
-		System.out.println(agendamento.getCliente());
-		System.out.println(cargas.size());
-		model.addAttribute("mensagem", "O agendamento numero "+agendamento.getId()+" foi cadastrado com sucesso!!!");
+		//System.out.println(agendamento.getCliente());
+		//System.out.println(cargas.size());
+		model.addAttribute("mensagem", "O agendamento da transportadora "+agendamento.getTransportador()+" foi cadastrado com sucesso!!!");
 
 			
 		return telaLista(model, usuario);
@@ -75,7 +75,7 @@ public class AgendamentoController {
 		Agendamento agendamento = agendamentoService.obterPorId(id);		
 		agendamentoService.excluir(id);
 
-		model.addAttribute("mensagem", "O agendament onumero "+agendamento.getId()+" foi removido com sucesso!!!");
+		model.addAttribute("mensagem", "O agendamento numero "+agendamento.getId()+" foi removido com sucesso!!!");
 		
 		return telaLista(model, usuario);
 	}

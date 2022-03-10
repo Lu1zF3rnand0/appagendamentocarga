@@ -26,8 +26,7 @@ public class UsuarioController {
 	@GetMapping(value = "/usuarios")
 	public String telaLista(Model model) {
 		
-		model.addAttribute("lista", usuarioService.obterLista());
-		
+		model.addAttribute("lista", usuarioService.obterLista());		
 		return "usuario/lista";
 	}
 

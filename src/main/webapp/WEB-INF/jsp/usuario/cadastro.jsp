@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Cadastro de Usuário</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="icon" href="img/icon.ico">
 </head>
 <body>
 

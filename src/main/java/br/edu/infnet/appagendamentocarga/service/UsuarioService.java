@@ -3,9 +3,9 @@ package br.edu.infnet.appagendamentocarga.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.appagendamentocarga.client.IUsuarioClient;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
 import br.edu.infnet.appagendamentocarga.repository.UsuarioRepository;
 
@@ -14,6 +14,9 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private IUsuarioClient usuarioClient;
 
 	public Usuario validar(String email, String senha) {
 		
@@ -21,27 +24,40 @@ public class UsuarioService {
 	}
 	
 	public Long obterQtd() {
-		return usuarioRepository.count();
+		return (long) usuarioClient.obterLista().size();
 	}
 	
 	public void incluir(Usuario usuario) {
 		
-		usuarioRepository.save(usuario);
+		usuarioClient.incluir(usuario);
+		
+		//usuarioRepository.save(usuario);
 	}
 
 	public List<Usuario> obterLista() {
 		
-		return usuarioRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+		return usuarioClient.obterLista();
+		//return usuarioRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+		
 	}
 
 	public Usuario obterPorId(Integer id) {
-
-		return usuarioRepository.findById(id).orElse(null);
+		
+		for (Usuario usuario : usuarioClient.obterLista()) {
+			if (usuario.getId().equals(id)) {
+				return usuario;
+			}
+		}
+		return null;
+		
+		//return usuarioRepository.findById(id).orElse(null);
 	}
 
 	public void excluir(Integer id) {
 		
-		usuarioRepository.deleteById(id);		
+		usuarioClient.excluir(id);
+		//usuarioRepository.deleteById(id);		
 	}
+	
 	
 }

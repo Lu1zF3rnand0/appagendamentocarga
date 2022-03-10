@@ -22,16 +22,17 @@ public class Cliente {
 	private String cnpj;
 	private String telefone;
 	private String email;
+	
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
+	//@JsonManagedReference(value="user-client")
 	private Usuario usuario;
+	
+	
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idEndereco")
 	private Endereco endereco;
 	
-	protected static int cont;
-	
-
 	public Cliente() {
 		//this.id = cont++;
 		
