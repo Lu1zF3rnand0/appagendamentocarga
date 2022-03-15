@@ -1,21 +1,7 @@
 package br.edu.infnet.appagendamentocarga.model.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "TCliente")
 public class Cliente {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String nome;
@@ -23,18 +9,11 @@ public class Cliente {
 	private String telefone;
 	private String email;
 	
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
-	//@JsonManagedReference(value="user-client")
 	private Usuario usuario;
 	
-	
-	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "idEndereco")
 	private Endereco endereco;
 	
 	public Cliente() {
-		//this.id = cont++;
 		
 	}
 	

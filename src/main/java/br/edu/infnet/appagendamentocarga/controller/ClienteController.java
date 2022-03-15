@@ -28,7 +28,7 @@ public class ClienteController {
 	@GetMapping(value = "/clientes")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
-		model.addAttribute("lista", clienteService.obterLista(usuario));
+		model.addAttribute("lista", clienteService.obterListaPorUser(usuario.getId()));
 		
 		return "cliente/lista";
 	}
@@ -50,7 +50,7 @@ public class ClienteController {
 	@GetMapping(value = "/cliente/{id}/excluir")
 	public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
 
-		Cliente cliente = clienteService.obterPorId(id);
+		Cliente cliente = clienteService.obterListaPorId(id);
 		try {
 			clienteService.excluir(id);
 			model.addAttribute("mensagem", "O solicitante " + cliente.getNome() + " foi removido com sucesso!!!");

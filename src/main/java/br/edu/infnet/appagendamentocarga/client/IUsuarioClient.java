@@ -21,4 +21,8 @@ public interface IUsuarioClient {
 	
 	@DeleteMapping(value = "/{id}/excluir")
 	public void excluir(@PathVariable int id);
+	
+	@PostMapping(value = "/{email}/{senha}/validar")
+	public Usuario validar(@PathVariable String email, @PathVariable String senha); 
+	
 }

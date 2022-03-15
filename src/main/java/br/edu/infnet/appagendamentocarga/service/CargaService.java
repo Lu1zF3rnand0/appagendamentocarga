@@ -1,6 +1,5 @@
 package br.edu.infnet.appagendamentocarga.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,44 +8,30 @@ import org.springframework.stereotype.Service;
 import br.edu.infnet.appagendamentocarga.client.ICargaClient;
 import br.edu.infnet.appagendamentocarga.model.domain.Carga;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
-import br.edu.infnet.appagendamentocarga.repository.CargaRepository;
 
 @Service
 public class CargaService {
-
-	@Autowired
-	private CargaRepository cargaRepository;
 
 	@Autowired
 	private ICargaClient cargaClient;
 
 	public List<Carga> obterLista(Usuario usuario) {
 
-		List<Carga> listaCargas = new ArrayList<>();
-
-		for (Carga carga : cargaClient.obterLista()) {
-			if (carga.getUsuario().getId().equals(usuario.getId())) {
-				listaCargas.add(carga);
-			}
-		}
-
-		return listaCargas;
-		// return cargaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC,
-		// "documento"));
+		return cargaClient.obterPorUser(usuario.getId());
 	}
 
 	public void excluir(Integer id) {
 
-		cargaRepository.deleteById(id);
+		cargaClient.excluir(id);
 	}
 
 	public Carga obterPorId(Integer id) {
 
-		return cargaRepository.findById(id).orElse(null);
+		return cargaClient.obterPorId(id);
 	}
 
 	public Long obterQtd() {
-		return cargaRepository.count();
+		return (long) cargaClient.obterLista().size();
 	}
 
 }

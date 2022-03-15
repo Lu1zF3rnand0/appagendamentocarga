@@ -2,29 +2,23 @@ package br.edu.infnet.appagendamentocarga.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appagendamentocarga.client.IAgendamentoClient;
 import br.edu.infnet.appagendamentocarga.model.domain.Agendamento;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
-import br.edu.infnet.appagendamentocarga.repository.AgendamentoRepository;
 
 @Service
 public class AgendamentoService {
-
-	@Autowired
-	private AgendamentoRepository agendamentoRepository;
 
 	@Autowired
 	private IAgendamentoClient agendamentoClient;
 
 	public List<Agendamento> obterLista() {
 
-		return agendamentoRepository.findAll(Sort.by(Sort.Direction.ASC, "transportador"));
+		return agendamentoClient.obterLista();
 	}
 
 	public List<Agendamento> obterLista(Usuario usuario) {

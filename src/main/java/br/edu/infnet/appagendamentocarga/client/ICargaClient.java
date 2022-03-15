@@ -15,10 +15,16 @@ public interface ICargaClient {
 
 	@GetMapping(value = "/listar")
 	public List<Carga> obterLista();
+
+	@GetMapping(value = "/{id}/listar")
+	public Carga obterPorId(@PathVariable Integer id);
+	
+	@GetMapping(value = "/{id}/listarPorUser")
+	public List<Carga> obterPorUser(@PathVariable Integer id);
 	
 	@PostMapping(value = "/incluir")
 	public void inserir(Carga carga);
-	
+
 	@DeleteMapping(value = "/{id}/excluir")
 	public void excluir(@PathVariable Integer id);
 }

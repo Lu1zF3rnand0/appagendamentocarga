@@ -1,8 +1,5 @@
 package br.edu.infnet.appagendamentocarga.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,15 +10,17 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
 import br.edu.infnet.appagendamentocarga.model.domain.Veiculo;
+import br.edu.infnet.appagendamentocarga.service.CargaService;
 import br.edu.infnet.appagendamentocarga.service.VeiculoService;
 
 @Controller
 public class VeiculoController {
 
-	List<Veiculo> veiculos = new ArrayList<Veiculo>();
-
 	@Autowired
 	private VeiculoService veiculoService;
+	
+	@Autowired
+	private CargaService cargaService;
 
 	@GetMapping(value = "/veiculo")
 	public String telaCadatro() {

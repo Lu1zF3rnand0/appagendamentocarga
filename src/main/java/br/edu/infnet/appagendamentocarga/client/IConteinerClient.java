@@ -15,6 +15,9 @@ public interface IConteinerClient {
 	public List<Conteiner> obterLista();
 	
 	@GetMapping(value = "/conteiner/{id}/listar")
-	public List<Conteiner> obterLista(@PathVariable Integer id);
+	public Conteiner obterLista(@PathVariable Integer id);
+	
+	@GetMapping(value = "/conteiner/{id}/listarPorUser")
+	public List<Conteiner> obterPorUser(@PathVariable Integer id);
 		
 }

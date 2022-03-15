@@ -4,38 +4,15 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "TAgendamento")
 public class Agendamento {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private LocalDateTime data;
 	private String tipo;
 	private String transportador;
-	
-	@OneToOne(cascade = CascadeType.DETACH) 
-	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
-	
-	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Carga> cargas;
-	
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
 	
 	@Override

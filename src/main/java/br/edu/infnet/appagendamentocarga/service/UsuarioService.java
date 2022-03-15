@@ -7,20 +7,17 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appagendamentocarga.client.IUsuarioClient;
 import br.edu.infnet.appagendamentocarga.model.domain.Usuario;
-import br.edu.infnet.appagendamentocarga.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-	
-	@Autowired
-	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
 	private IUsuarioClient usuarioClient;
 
 	public Usuario validar(String email, String senha) {
 		
-		return usuarioRepository.autenticacao(email, senha);
+		return usuarioClient.validar(email, senha);
+		//return usuarioRepository.autenticacao(email, senha);
 	}
 	
 	public Long obterQtd() {

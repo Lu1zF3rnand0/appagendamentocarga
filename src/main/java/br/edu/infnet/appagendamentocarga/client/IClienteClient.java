@@ -25,6 +25,6 @@ public interface IClienteClient {
 	@DeleteMapping(value = "/{id}/excluir")
 	public void excluir(@PathVariable Integer id);
 	
-	
-
+	@GetMapping(value = "/{id}/listarPorId")
+	public Cliente obterListaPorid(@PathVariable Integer id);
 }

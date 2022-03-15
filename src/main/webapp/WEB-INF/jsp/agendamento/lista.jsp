@@ -1,4 +1,3 @@
-<%@page import="br.edu.infnet.appagendamentocarga.model.domain.Aluno"%>
 <%@page import="java.util.List"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

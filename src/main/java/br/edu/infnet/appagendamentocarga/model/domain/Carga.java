@@ -2,26 +2,11 @@ package br.edu.infnet.appagendamentocarga.model.domain;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import br.edu.infnet.appagendamentocarga.exceptions.PortoInvalidoException;
 
-@Entity
-@Table(name = "TCarga")
-@Inheritance(strategy = InheritanceType.JOINED)
 @JsonTypeInfo( 		
 		use = JsonTypeInfo.Id.NAME, 		
 		include = JsonTypeInfo.As.PROPERTY, 		
@@ -33,19 +18,12 @@ import br.edu.infnet.appagendamentocarga.exceptions.PortoInvalidoException;
 })
 public abstract class Carga {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Integer id;
 	private String navio;
 	private String documento;
 	private String porto;
-	
-	@ManyToMany(mappedBy = "cargas")
-	@JsonIgnore
 	private List<Agendamento> agendamentos;
-	
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
 
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.appagendamentocarga.model.domain.Veiculo;
 
@@ -13,4 +14,6 @@ public interface IVeiculoClient {
 	@GetMapping(value = "/veiculo/listar")
 	public List<Veiculo> obterLista();
 	
+	@GetMapping(value = "/veiculo/{id}/listarPorUser")
+	public List<Veiculo> obterPorUser(@PathVariable Integer id); 
 }
