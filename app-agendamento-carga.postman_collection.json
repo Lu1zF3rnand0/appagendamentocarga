@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "08cdcc91-bc52-44fb-a50c-b4b56e1ec073",
+		"name": "app-agendamento-carga",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api-agendamento",
+			"item": [
+				{
+					"name": "agendamento-listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/agendamento/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"agendamento",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agendamento-incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"data\": \"2022-03-12T17:10:12.081492\",\r\n        \"tipo\": \"Exportação\",\r\n        \"transportador\": \"Tranziran\",\r\n        \"cliente\": {\r\n            \"id\": 1,\r\n            \"nome\": \"ClienteTeste ltda\",\r\n            \"cnpj\": \"02828446000134\",\r\n            \"telefone\": \"21 3232-2323\",\r\n            \"email\": \"ClienteTeste@ClienteTeste\",\r\n            \"endereco\": null\r\n        },\r\n        \"cargas\": [\r\n            {\r\n                \"tipo\": \"Conteiner\",\r\n                \"id\": 1,\r\n                \"navio\": \"MSC Conteiner\",\r\n                \"documento\": \"21/102030-1\",\r\n                \"porto\": \"BRRIO\",\r\n                \"numero\": \"MSCU456789\",\r\n                \"tamanho\": 40,\r\n                \"status\": \"Cheio\"\r\n            },\r\n            {\r\n                \"tipo\": \"Veiculo\",\r\n                \"id\": 2,\r\n                \"navio\": \"MSC Veiculo\",\r\n                \"documento\": \"21/202040-5\",\r\n                \"porto\": \"USGLO\",\r\n                \"chassi\": \"936CM5GYANB541361\",\r\n                \"montadora\": \"Peugeot\",\r\n                \"modelo\": \"2008 SPORT 1.6\"\r\n            },\r\n            {\r\n                \"tipo\": \"CargaSolta\",\r\n                \"id\": 3,\r\n                \"navio\": \"MSC Carga Solta\",\r\n                \"documento\": \"21/002233-6\",\r\n                \"porto\": \"JPTOT\",\r\n                \"mercadoria\": \"Caixas de Madeira\",\r\n                \"imo\": false,\r\n                \"oog\": true\r\n            }\r\n        ],\r\n        \"usuario\": {\r\n            \"id\": 1,\r\n            \"nome\": \"luiz\",\r\n            \"email\": \"luiz@gmail.com\",\r\n            \"senha\": \"123\",\r\n            \"admin\": true,\r\n            \"endereco\": null\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/agendamento/incluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"agendamento",
+								"incluir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agendamento-excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/agendamento/4/excluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"agendamento",
+								"4",
+								"excluir"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-usuario",
+			"item": [
+				{
+					"name": "usuario-listar",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/usuario/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"usuario",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario-validar",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/usuario/luiz@gmail.com/123/validar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"usuario",
+								"luiz@gmail.com",
+								"123",
+								"validar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario-incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Marco\",\r\n        \"email\": \"marco@marco.com\",\r\n        \"senha\": \"123\",\r\n        \"admin\": false,\r\n        \"endereco\": {\r\n            \"cep\": \"25930000\",\r\n            \"logradouro\": \"Rua Barão de Mesquita\",\r\n            \"complemento\": \"de 872 ao fim - lado par\",\r\n            \"bairro\": \"Grajaú\",\r\n            \"localidade\": \"Rio de Janeiro\",\r\n            \"uf\": \"RJ\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/usuario/incluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"usuario",
+								"incluir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario-excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/usuario/4/excluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"usuario",
+								"4",
+								"excluir"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-cliente",
+			"item": [
+				{
+					"name": "cliente-listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/cliente/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"cliente",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cliente-listar-por-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/cliente/2/listarPorId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"cliente",
+								"2",
+								"listarPorId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cliente-listar-por-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/cliente/1/listarPorUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"cliente",
+								"1",
+								"listarPorUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cliente-incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"ClienteTeste ltda\",\r\n        \"cnpj\": \"02828446000134\",\r\n        \"telefone\": \"21 3232-2323\",\r\n        \"email\": \"ClienteTeste@ClienteTeste\",\r\n        \"usuario\": {\r\n            \"id\": 1,\r\n            \"nome\": \"luiz\",\r\n            \"email\": \"luiz@gmail.com\",\r\n            \"senha\": \"123\",\r\n            \"admin\": true,\r\n            \"endereco\": null\r\n        },\r\n        \"endereco\": {\r\n            \"cep\": \"25911231\",\r\n            \"logradouro\": \"\",\r\n            \"complemento\": \"\",\r\n            \"bairro\": \"\",\r\n            \"localidade\": \"\",\r\n            \"uf\": \"\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/cliente/incluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"cliente",
+								"incluir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cliente-excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/cliente/2/excluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"cliente",
+								"2",
+								"excluir"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-log",
+			"item": [
+				{
+					"name": "log-listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/log/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"log",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-listar-qtd",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/log/qtde",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"log",
+								"qtde"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-incluir",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"log-teste\",\r\n        \"data\": \"2022-02-19T17:48:25.26768\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8087/api/log/incluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"log",
+								"incluir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/log/1/excluir",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"log",
+								"1",
+								"excluir"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api-carga",
+			"item": [
+				{
+					"name": "conteiner",
+					"item": [
+						{
+							"name": "carga-conteiner-listar",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/conteiner/listar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"conteiner",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-conteiner-listar-por-user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/conteiner/2/listarPorUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"conteiner",
+										"2",
+										"listarPorUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-conteiner-incluir",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"tipo\": \"Conteiner\",\r\n        \"id\": 4,\r\n        \"navio\": \"Navio Teste\",\r\n        \"documento\": \"21/12345-6\",\r\n        \"porto\": \"BRRIO\",\r\n        \"usuario\": {\r\n            \"id\": 2,\r\n            \"nome\": \"teste\",\r\n            \"email\": \"teste@teste.com\",\r\n            \"senha\": \"123\",\r\n            \"admin\": false,\r\n            \"endereco\": {\r\n                \"id\": 1,\r\n                \"cep\": \"25911-231\",\r\n                \"logradouro\": \"Travessa Oito de Maio\",\r\n                \"complemento\": \"\",\r\n                \"bairro\": \"Andorinhas (Santo Aleixo)\",\r\n                \"localidade\": \"Magé\",\r\n                \"uf\": \"RJ\"\r\n            }\r\n        },\r\n        \"numero\": \"MSC2554456\",\r\n        \"tamanho\": 20,\r\n        \"status\": \"Cheio\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/carga/conteiner/incluir",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"conteiner",
+										"incluir"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "veiculo",
+					"item": [
+						{
+							"name": "carga-veiculo-listar",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/veiculo/listar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"veiculo",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-veiculo-listar-por-user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/veiculo/1/listarPorUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"veiculo",
+										"1",
+										"listarPorUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-veiculo-incluir",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"tipo\": \"Veiculo\",\r\n        \"navio\": \"MSC Veiculo\",\r\n        \"documento\": \"21/202040-5\",\r\n        \"porto\": \"USGLO\",\r\n        \"usuario\": {\r\n            \"id\": 1,\r\n            \"nome\": \"luiz\",\r\n            \"email\": \"luiz@gmail.com\",\r\n            \"senha\": \"123\",\r\n            \"admin\": true,\r\n            \"endereco\": null\r\n        },\r\n        \"chassi\": \"936CM5GYANB541361\",\r\n        \"montadora\": \"Peugeot\",\r\n        \"modelo\": \"2008 SPORT 1.6\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/carga/veiculo/incluir",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"veiculo",
+										"incluir"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carga-solta",
+					"item": [
+						{
+							"name": "carga-cargasolta-listar",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/cargaSolta/listar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"cargaSolta",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-cargasolta-listar-por-user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/cargaSolta/1/listarPorUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"cargaSolta",
+										"1",
+										"listarPorUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-cargasolta-incluir",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"tipo\": \"CargaSolta\",\r\n        \"navio\": \"MSC Carga Solta\",\r\n        \"documento\": \"21/002233-6\",\r\n        \"porto\": \"JPTOT\",\r\n        \"usuario\": {\r\n            \"id\": 1,\r\n            \"nome\": \"luiz\",\r\n            \"email\": \"luiz@gmail.com\",\r\n            \"senha\": \"123\",\r\n            \"admin\": true,\r\n            \"endereco\": null\r\n        },\r\n        \"mercadoria\": \"Caixas de Madeira\",\r\n        \"imo\": false,\r\n        \"oog\": true\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/carga/cargaSolta/incluir",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"cargaSolta",
+										"incluir"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "geral",
+					"item": [
+						{
+							"name": "carga-listar",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/listar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-listar-por-user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/2/listarPorUser",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"2",
+										"listarPorUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-listar-por-id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/2/listar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"2",
+										"listar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-incluir",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"tipo\": \"CargaSolta\",\r\n        \"navio\": \"MSC Carga Teste\",\r\n        \"documento\": \"21/002233-6\",\r\n        \"porto\": \"TESTE\",\r\n        \"agendamentos\": [\r\n            {\r\n                \"id\": 1,\r\n                \"data\": \"2022-03-09T21:46:51.078449\",\r\n                \"tipo\": \"Exportação\",\r\n                \"transportador\": \"Tranziran\"\r\n            }\r\n        ],\r\n        \"usuario\": {\r\n            \"id\": 1,\r\n            \"nome\": \"luiz\",\r\n            \"email\": \"luiz@gmail.com\",\r\n            \"senha\": \"123\",\r\n            \"admin\": true,\r\n            \"endereco\": null\r\n        },\r\n        \"mercadoria\": \"Caixas de Madeira\",\r\n        \"imo\": false,\r\n        \"oog\": true\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/api/carga/incluir",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"incluir"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "carga-excluir",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/api/carga/6/excluir",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"api",
+										"carga",
+										"6",
+										"excluir"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
